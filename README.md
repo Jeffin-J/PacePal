@@ -37,15 +37,11 @@ To get started with PacePal, follow these steps:
 
 For support or feedback, please contact our team members:
 
-- Christopher Christmas: [christopher@example.com](mailto:christopher@example.com)
-- Jeffin Johnykutty: [jeffin@example.com](mailto:jeffin@example.com)
+- Christopher Christmas: [christopher.Christmas@temple.edu](mailto:christopher.christmas@temple.edu)
+- Jeffin Johnykutty: [jeffin.johnykutty@temple.edu](mailto:jeffin.johnykutty@temple.edu)
 
 ### Contributions:
 
 Contributions to PacePal are welcome! If you would like to contribute to the development of PacePal, please follow our contribution guidelines.
-
-### License:
-
-PacePal is licensed under the [MIT License](LICENSE), granting users the freedom to use, modify, and distribute the software. See the License file for more details.
 
 Happy Running with PacePal! 🏃‍♂️🏃‍♀️
