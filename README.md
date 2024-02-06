@@ -1,5 +1,3 @@
-# PacePal
-
 # PacePal Readme
 
 ## Project Title: PacePal
