@@ -1,7 +1,5 @@
 # PacePal
 
-## Project Title: PacePal
-
 ### Group Number: 9
 
 **Team Members:**
