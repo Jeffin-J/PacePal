@@ -2,9 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"
-        tools:ignore="CoarseFineLocation" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" tools:ignore="CoarseFineLocation" />
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
@@ -17,27 +15,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GPS30"
         tools:targetApi="31">
+
         <activity
             android:name=".MainActivityJ"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.GPS30">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
         <service
             android:name=".LocationServie"
             android:enabled="true"
-            android:exported="false"
-            />
-<!--        &lt;!&ndash; Example Receiver &ndash;&gt;-->
-<!--        <receiver android:name=".ExampleReceiver"-->
-<!--            android:exported="false">-->
-<!--            &lt;!&ndash; Intent filters here if needed &ndash;&gt;-->
-<!--        </receiver>-->
-    </application>
+            android:exported="false"/>
 
+        <receiver android:name=".MyReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="com.ssd.gps_30.SOME_ACTION" />
+                <!-- Add more actions as needed -->
+            </intent-filter>
+        </receiver>
+
+
+    </application>
 </manifest>

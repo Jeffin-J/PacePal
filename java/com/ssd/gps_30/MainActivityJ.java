@@ -1,79 +1,38 @@
 package com.ssd.gps_30;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.annotation.Nullable; // Ensure this import is added
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+
+// Your class implementation
+
 
 public class MainActivityJ extends AppCompatActivity {
 
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1001;
-    private BroadcastReceiver permissionReceiver;
-    private BroadcastReceiver dynamicReceiver;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Initialize the receiver
-        initReceiver();
-
         // Check if location permissions have been granted
-        if (checkSelfPermission(android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            // Permissions are already granted, do something or start service directly
-            startService();
-        } else {
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // Permissions are not granted, request them
-            ActivityCompat.requestPermissions(MainActivityJ.this,
+            ActivityCompat.requestPermissions(this,
                     new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
                     LOCATION_PERMISSION_REQUEST_CODE);
+        } else {
+            // Permissions are already granted, start the LocationService directly
+            startService();
         }
     }
-
-    private void initReceiver() {
-        permissionReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                ActivityCompat.requestPermissions(MainActivityJ.this,
-                        new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
-                        LOCATION_PERMISSION_REQUEST_CODE);
-            }
-        };
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        // Initialize and register receiver
-        dynamicReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                // Handle received broadcast
-            }
-        };
-        IntentFilter filter = new IntentFilter("YOUR_CUSTOM_ACTION");
-        registerReceiver(dynamicReceiver, filter);
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        // Unregister receiver
-        if (dynamicReceiver != null) {
-            unregisterReceiver(dynamicReceiver);
-            dynamicReceiver = null;
-        }
-    }
-
 
     // Method to start the LocationService
     void startService() {
