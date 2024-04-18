@@ -33,6 +33,11 @@
             android:enabled="true"
             android:exported="false"
             />
+<!--        &lt;!&ndash; Example Receiver &ndash;&gt;-->
+<!--        <receiver android:name=".ExampleReceiver"-->
+<!--            android:exported="false">-->
+<!--            &lt;!&ndash; Intent filters here if needed &ndash;&gt;-->
+<!--        </receiver>-->
     </application>
 
 </manifest>
